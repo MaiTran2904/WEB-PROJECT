@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="detail1">
+        <div class="col-lg-6 col-xs-12 col-sm-12">
+            <div id="hinhanh" class="preview-pic tab-content">
+                <div class="tab-pane active" id="pic-1"><img src="${data.img}" /></div>
+                <div class="tab-pane" id="pic-2"><img src="${data.img2}" /></div>
+                <div class="tab-pane" id="pic-3"><img src="${data.img3}" /></div>
+                <ul class="preview-thumbnail nav nav-tabs" style="size:40%">
+                    <li class="active " style="size:40% ">
+                        <a data-target="#pic-1 " data-toggle="tab "><img src="${data.img} " /></a>
+                    </li>
+                    <li>
+                        <a data-target="#pic-2 " data-toggle="tab "><img src="${data.img2} " /></a>
+                    </li>
+                    <li>
+                        <a data-target="#pic-3 " data-toggle="tab "><img src="${data.img3} " /></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <div class="boSung ">
+            <div class="col-lg-6 col-xs-12 col-sm-12">
+                <div class="noiDung "><br>
+                    <b> ${data.name} </b>
+                </div>
+                <div class="price_size ">
+                    <table id="table ">
+                        <tr style="color:rgb(62, 84, 131) ">
+                            <th>SIZE</th>
+                            <th>PRICE</th>
+                            <th>STATUS</th>
+                        </tr>
+                        <tr>
+                            <td>${data.size1}</td>
+                            <td>${data.price} VNĐ</td>
+                            <td>${data.status} </td>
+                        </tr>
+                        <tr>
+                            <td>${data.size2}</td>
+                            <td>${data.price2} VNĐ</td>
+                            <td>${data.status2} </td>
+                        </tr>
+                        <tr>
+                            <td>${data.size3} </td>
+                            <td>${data.price3} VNĐ</td>
+                            <td>${data.status3} </td>
+                        </tr>
+                    </table>
+                    <br>
+
+                </div>
+                <div class="button ">
+                    <button type="button " id="buyProduct ">BUY NOW</button>
+                    <button type="button " id="addProduct " class="fas fa-shopping-cart " onclick="Mua() "></button>
+                </div>
+                <div.guide>
+                    <i class="far fa-heart "></i> <span>Gift Wrapping - Small Bear - Giving Free Cards</span><br>
+                    <i class="far fa-heart "></i> <span>Fast Delivery - Punctual Delivery & Hand-Handed</span><br>
+                    <i class="far fa-heart "></i> <span>Nationwide Delivery 2 - 5 Days - Receiving New Payments</span><br>
+                    <i class="far fa-heart "></i> <span>Permanent Road Warranty - 1 year Teddy Bear Warranty</span><br>
+                    <i class="far fa-heart "></i> <span>Bear Washing & Cleaning Service at Home Cheap Price</span><br>
+                    <i class="far fa-heart "></i> <span>Shop Addresses Easy To Find - Free Car Parking</span><br>
+                    <i class="fas fa-map-marker-alt "></i> <span>101B_ Le Huu Trac_ Son Tra_ Da Nang<br> 0945841549
+                0915810375</span><br><br>
+                </div.guide>
+            </div>
+        </div>
+    </div>
+
+    <div id="addInfor ">
+        <div class="col-12 ">
+            <div class="Hinh ">
+                <div class="hinh2 "><img src="${data.img} " /> </br>
+                    <p>${data.comment}</p>
+                </div>
+                </br>
+                <div class="hinh2 "><img src="${data.img2} " /></br>
+                    <p>${data.comment2}</p>
+                </div>
+                </br>
+                <div class="hinh2 "><img src="${data.img3} " /></div>
+                </br>
+            </div>
+
+            <br>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
