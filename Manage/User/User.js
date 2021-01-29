@@ -88,7 +88,7 @@ function DM() {
                 listproductDisplay += '<div class= "col-md-3 col-xs-6">';
                 listproductDisplay += '<div class="products">';
                 listproductDisplay += '<a onclick="pushID(' + data.ID + ');Chitiet()" role="#detail-product">';
-                listproductDisplay += ' <div class="thumbnail"><img src="../image/' + data.img + '" alt="..."></div>';
+                listproductDisplay += ' <div class="thumbnail"><img src="../../' + data.img + '" alt="..."></div>';
                 listproductDisplay += '<div class="productname">' + data.name + '</div>';
                 listproductDisplay += '<h4 class="price">' + data.price + ' VNĐ</h4>';
                 listproductDisplay += '</a>';
@@ -125,7 +125,7 @@ function search() {
         }
     }
 
-    Save(listSearch)
+    save(listSearch)
         // Hàm này lưu chuỗi vào listProduct localStorage=> Dữ liệu động <> nên bên trên lấy dữ liệu mẫu preData
     saveCurrentPage(1)
     setIsSearch(true)
@@ -141,8 +141,7 @@ const displayData = (data, page = 1, isSearch = false, numDataOfPage = DATA_ON_P
             listproductDisplay += '<div class= "col-md-3 col-xs-6">';
             listproductDisplay += '<div class="products">';
             listproductDisplay += '<a onclick="pushID(' + data[i].ID + ');Chitiet()" href="#detail-product">';
-
-            listproductDisplay += ' <div class="thumbnail"> <img src="../image/' + data[i].img + '" alt="..."></div>';
+            listproductDisplay += ' <div class="thumbnail"> <img src="../../' + data[i].img + '" alt="..."></div>';
             listproductDisplay += '<div class="productname">' + data[i].name + '</div>';
             listproductDisplay += '<h4 class="price">' + data[i].price + ' VNĐ</h4>';
             listproductDisplay += '</a>';
@@ -229,18 +228,18 @@ function Chitiet() {
             <div class="detail1">
         <div class="col-md-6 col-xs-12 col-sm-12">
             <div id="hinhanh" class="preview-pic tab-content">
-                <div class="tab-pane active" id="pic-1"><img src="${data.img}" /></div>
-                <div class="tab-pane" id="pic-2"><img src="${data.img2}" /></div>
-                <div class="tab-pane" id="pic-3"><img src="${data.img3}" /></div>
+                <div class="tab-pane active" id="pic-1"><img src="../../${data.img}" /></div>
+                <div class="tab-pane" id="pic-2"><img src="../../${data.img2}" /></div>
+                <div class="tab-pane" id="pic-3"><img src="../../${data.img3}" /></div>
                 <ul class="preview-thumbnail nav nav-tabs" style="size:40%">
                     <li class="active " style="size:40% ">
-                        <a data-target="#pic-1 " data-toggle="tab "><img src="${data.img} " /></a>
+                        <a data-target="#pic-1 " data-toggle="tab "><img src="../../${data.img} " /></a>
                     </li>
                     <li>
-                        <a data-target="#pic-2 " data-toggle="tab "><img src="${data.img2} " /></a>
+                        <a data-target="#pic-2 " data-toggle="tab "><img src="../../${data.img2} " /></a>
                     </li>
                     <li>
-                        <a data-target="#pic-3 " data-toggle="tab "><img src="${data.img3} " /></a>
+                        <a data-target="#pic-3 " data-toggle="tab "><img src="../../${data.img3} " /></a>
                     </li>
                 </ul>
             </div>
@@ -308,15 +307,15 @@ function Chitiet() {
             </div>
             <div class="col-12 ">
                 <div class="Hinh" id="pic-detail">
-                    <div class="hinh2 "><img src="${data.img} " /> </br>
+                    <div class="hinh2 "><img src="../../${data.img} " /> </br>
                         <p>${data.comment}</p>
                     </div>
                     </br>
-                    <div class="hinh2 "><img src="${data.img2} " /></br>
+                    <div class="hinh2 "><img src="../../${data.img2} " /></br>
                         <p>${data.comment2}</p>
                     </div>
                     </br>
-                    <div class="hinh2 "><img src="${data.img3} " /></div>
+                    <div class="hinh2 "><img src="../../${data.img3} " /></div>
                     </br>
                 </div>
     
@@ -387,10 +386,10 @@ function showCard() {
         <tr>
         <td>${data.ID}</td>
         <td>${data.name}</td>
-        <td> <img src="../${data.img}" alt="" style="width:100px;height:100px"></td>
+        <td> <img src="${data.img}" alt="" style="width:100px;height:100px"></td>
         <td> ${data.price}</td>
-        <td>   <button  onclick="deleteProduct('+key+')" class="btn btn-out-warning"> <i class="fas fa-trash"> </i></button>
-        </td>
+        <td>   <button  onclick="deleteProduct('+key+')" class="btn btn-out-warning"> <i class="fas fa-trash"> </i></button></td>
+        <td><input type="number" value="${data.amount}" onclick="count('${data.ID}')"> </td>
 
 
     </tr>`;

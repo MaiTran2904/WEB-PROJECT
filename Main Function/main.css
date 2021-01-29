@@ -1,6 +1,7 @@
 * {
     padding: 0px;
     margin: 0px;
+    
 }
 
 .container {
@@ -24,7 +25,7 @@
 }
 
 .logo-shop {
-    border: 1px solid #f7544a;
+    /* border: 1px solid #f7544a; */
     display: flex;
     border-radius: 10px;
 }
@@ -159,23 +160,29 @@
     margin-bottom: 10px;
     width: 100%;
     text-align: center;
+    height: 20%;
     background-color: white;
 }
 
 .products .button {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+
     border: #f7544a 1px solid;
     border-radius: 5px;
     margin: 0 3px 5px 3px;
     padding: 5px 10px 5px 10px;
+    height: 10%;
     background-color: white;
 }
 
 .products .button .add-cart {
-    width: 70%;
+    color: #f7544a;
 }
 
 .products .button .fa {
-    width: 30%;
+
     color: #f7544a;
 }
 
@@ -441,13 +448,32 @@ th {
 }
 
 .fas fa-shopping-cart {
+    color: #f7544a;
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+}
+.fas fa-shopping-cart:hover{
+    color: white;
+    background-color: #f7544a;
+}
+.button-card{
+    margin-right: 10px;
     width: 100px;
     height: 50px;
-    background: #FFB6C1;
-    /* border: orange solid 1px; */
+    background:white;
+    border: #f7544a solid 1px;
     border-radius: 5px 5px 5px 5px;
 }
-
+.button-card span{
+    font-family: 'Times New Roman', Times, serif, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: medium;
+    padding: 5px;
+}
+.button-card:hover{
+    background-color: #f7544a;
+    color: white;
+}
 
 /* div{
     border: 1px black solid;
