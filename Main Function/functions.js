@@ -38,6 +38,10 @@ function reLoad() {
     window.location.reload()
 }
 
+function gotoLogin() {
+    window.location.href = "../../Manage/Login/login.html";
+}
+
 function goToHome() {
     localStorage.removeItem("listProduct")
     localStorage.removeItem("currentPage")
@@ -88,12 +92,12 @@ function DM() {
                 listproductDisplay += '<div class= "col-md-3 col-xs-6">';
                 listproductDisplay += '<div class="products">';
                 listproductDisplay += '<a onclick="pushID(' + data.ID + ');Chitiet()" role="#detail-product">';
-                listproductDisplay += ' <div class="thumbnail"><img src="./' + data.img + '" alt="..."></div>';
+                listproductDisplay += ' <div class="thumbnail"><img src="../image/' + data.img + '" alt="..."></div>';
                 listproductDisplay += '<div class="productname">' + data.name + '</div>';
                 listproductDisplay += '<h4 class="price">' + data.price + ' VNĐ</h4>';
                 listproductDisplay += '</a>';
-                listproductDisplay += ' <div class="button_group"><button class="button add-cart" type="button" onclick="addCart(' + 1 + ',' + data.ID + ')">Add To Cart';
-                listproductDisplay += ' </button><button class="button wishlist" type="button" onclick="like(' + data.ID + ')"><i class="fa fa-heart-o"></i></button></div>';
+                listproductDisplay += ' <div class="button_group"><button class="button add-cart" type="button" onclick="gotoLogin()">Add To Cart';
+                listproductDisplay += ' </button><button class="button wishlist" type="button" onclick="gotoLogin()"><i class="fa fa-heart-o"></i></button></div>';
                 listproductDisplay += '</div> </div>';
             }
 
@@ -134,7 +138,7 @@ function search() {
 
 const displayData = (data, page = 1, isSearch = false, numDataOfPage = DATA_ON_PAGE) => {
         var first = (page - 1) * numDataOfPage
-        var last = (first + numDataOfPage - 1 < data.length) ? first + numDataOfPage : data.length
+        var last = (first + numDataOfPage - 1 < data.length) ? first + numDataOfPage : data.length;
         var listproductDisplay = " ";
         for (var i = first; i < last; i++) {
             console.log(data[i].ID);
@@ -142,12 +146,12 @@ const displayData = (data, page = 1, isSearch = false, numDataOfPage = DATA_ON_P
             listproductDisplay += '<div class="products">';
             listproductDisplay += '<a onclick="pushID(' + data[i].ID + ');Chitiet()" href="#detail-product">';
 
-            listproductDisplay += ' <div class="thumbnail"> <img src="./' + data[i].img + '" alt="..."></div>';
+            listproductDisplay += ' <div class="thumbnail"> <img src="../image/' + data[i].img + '" alt="..."></div>';
             listproductDisplay += '<div class="productname">' + data[i].name + '</div>';
             listproductDisplay += '<h4 class="price">' + data[i].price + ' VNĐ</h4>';
             listproductDisplay += '</a>';
-            listproductDisplay += ' <div class="button_group"><button class="button add-cart" type="button" onclick="addCart(' + 1 + ',' + data[i].ID + ')">Add To Cart';
-            listproductDisplay += ' </button><button class="button wishlist" type="button" onclick="like(' + data[i].ID + ')"><i class="fa fa-heart-o"></i></button></div>';
+            listproductDisplay += ' <div class="button_group"><button class="button add-cart" type="button" onclick="gotoLogin()">Add To Cart';
+            listproductDisplay += ' </button><button class="button wishlist" type="button" onclick="gotoLogin()"><i class="fa fa-heart-o"></i></button></div>';
             listproductDisplay += '</div> </div>';
         }
         var pageLength = Math.round((data.length) / numDataOfPage)
@@ -277,8 +281,16 @@ function Chitiet() {
 
                 </div>
                 <div class="button ">
-                    <button type="button " id="buyProduct ">BUY NOW</button>
-                    <button type="button " id="addProduct " class="fas fa-shopping-cart " onclick="Mua() "></button>
+                    <button type="button " id="buyProduct " style=" width: 100px;
+                    height: 50px;
+                    background: #ffffff;
+                    border: orange solid 1px;
+                    border-radius: 5px 5px 5px 5px;">BUY NOW</button>
+                    <button type="button " id="addProduct " style="   width: 100px;
+                    height: 50px;
+                    background: #FFB6C1;
+                    /* border: orange solid 1px; */
+                    border-radius: 5px 5px 5px 5px;"class="fas fa-shopping-cart " onclick="Mua() "></button>
                 </div>
 
             </div>
@@ -325,4 +337,105 @@ function Chitiet() {
     document.getElementById('detail-product').innerHTML = html;
     load();
     console.log('print detail');
+}
+
+// GIỎ HÀNG
+var card = [];
+
+function saveListCard() {
+    localStorage.setItem('ListCard', JSON.stringify(card));
+}
+
+
+function loadListCard() {
+    card = JSON.parse(localStorage.getItem('ListCard'));
+}
+
+if (localStorage.getItem('ListCard') != null) {
+    loadListCard();
+}
+
+function getListCard() {
+    return JSON.parse(window.localStorage.getItem('ListCard'));
+}
+// localStorage.setItem('ListCard', JSON.stringify(card));
+
+function setListCard(card) {
+    localStorage.setItem('ListCard', JSON.stringify(card));
+}
+
+if (localStorage.getItem('ListCard') != null) {
+    getListCard();
+}
+
+function Mua() {
+    for (var key2 in product) {
+        if (key2 == vitri) {
+            var data = JSON.parse(JSON.stringify(product[key2]));
+            card.push(data);
+            console.log(data);
+            console.log(key2);
+        }
+        saveListCard();
+    }
+}
+
+function Card() {
+
+    console.log(card);
+    for (var key in card) {
+        let html = "";
+
+        var data = card[key];
+        console.log(data);
+        html += `
+        <tr>
+        <td>${data.ID}</td>
+        <td>${data.name}</td>
+        <td> <img src="${data.img}" alt="" style="width:100px;height:100px"></td>
+        <td> ${data.price}</td>
+        <td>   <button  onclick="deleteProduct('+key+')" class="btn btn-out-warning"> <i class="fas fa-trash"> </i></button>
+        </td>
+
+
+    </tr>`;
+
+        document.getElementById("tab1").innerHTML += html;
+
+    }
+}
+
+// function caculater() {
+//     for (var key in card) {
+//         let html = "";
+//         var sub = 0;
+//         var ship = 2;
+
+//         var tongTien = 0;
+//         var tienShip = 0;
+//         var data = card[key];
+//         console.log(data);
+//         tongTien += `parseFloat(${data.price};
+//         tienShip+ = parseFloat(${data.price/100*2};
+//         sub += parseFloat(${data.price}+(${data.price}/100*paraeFloat(ship)));  
+//        `;
+//         document.getElementById("money_ship").innerHTML += tienShip;
+//         document.getElementById("money").innerHTML += tongTien;
+//         document.getElementById("sub").innerHTML += tongTien;
+
+//     }
+// }
+
+var deleteProduct = function(i) {
+    card.splice(i, 1);
+    localStorage.setItem('ListCard', JSON.stringify(card));
+    window.location.reload();
+
+}
+var buyProduct = function(i) {
+    var k = infor[i];
+    document.getElementById("ten").value = k.name;
+    document.getElementById("named").value = k.name;
+    document.getElementById("num").value = k.number;
+    document.getElementById("add").value = k.address;;
 }

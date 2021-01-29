@@ -2,11 +2,11 @@
 <html>
 
 <head>
-    <title>PROJECT</title>
+    <title>User</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
-    
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -25,14 +25,14 @@
                 <div class="logo-shop">
                     <a onclick="goToHome()" href="#">
                         <div><img src="../../image/logo.png" /></div>
-                    <div><span>Ôm là yêu</span></div>
-                </a>
+                        <div><span>Ôm là yêu</span></div>
+                    </a>
                 </div>
-               
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-    
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
@@ -60,30 +60,30 @@
                     <button onclick="search()">Search</button> -->
                             <input class="form-control mr-sm-2" placeholder="Search" id="search">
                             <button class="btn btn-outline-success my-2 my-sm-0" id="button-search" onclick="search()">Search</button>
-        
+
                         </div>
                     </ul>
-                 
+
                     <ul class="nav navbar-nav navbar-right">
                         &nbsp;
-    
+
                         <li>
-                            <a href="giohang" class="fas fa-shopping-cart" style="color: orangered;"></a>
+                            <a href="../cart.html" class="fas fa-shopping-cart" style="color: orangered;"></a>
                         </li>
-    
+
                         <li class="button-account">
-                            <a  href="../../Manage/Login/createAccount.html" style="font-size: 100%;color: rgb(100, 100, 216);"> <i class="fa fa-user" style="color: orangered;padding-right: 5px;"></i>Đăng kí</a>
+                            <a href="../../Manage/Login/createAccount.html" style="font-size: 100%;color: rgb(100, 100, 216);"> <i class="fa fa-user" style="color: orangered;padding-right: 5px;"></i>Đăng kí</a>
                         </li>
                         &nbsp; &nbsp;&nbsp;
                         <li class="button-account">
-                            <a  href="../../Manage/Login/login.html" style="font-size: 100%;color: rgb(100, 100, 216);"><i class="fas fa-user" style="color: orangered;padding-right: 5px;"></i>Đăng nhập</a>
+                            <a href="../../Manage/Login/login.html" style="font-size: 100%;color: rgb(100, 100, 216);"><i class="fas fa-user" style="color: orangered;padding-right: 5px;"></i>Đăng nhập</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </div>
- 
+
     <!-- end menu -->
     <!-- Search Function -->
     <div class="container">
@@ -313,27 +313,26 @@
 
     <!-- Load jquery trước khi load bootstrap js -->
     <script src="../../Main Function/offlineData.js"></script>
-    <script src="../../Main Function/functions.js"></script>
+    <script src="./User.js"></script>
 
     <script>
-        !localStorage.getItem("listProduct") && Save(preData)
+        !localStorage.getItem("listProduct") && save(preData)
         console.log("start1");
-        var data = load()
-        var page = getCurrentPage()
-        var isSearch = getIsSearch()
-        console.log("current page " + page)
-        displayData(data, page, isSearch)
-        displayData(preData, page, false)
+        var data = load();
+        var page = getCurrentPage();
+        var isSearch = getIsSearch();
+        console.log("current page " + page);
+        displayData(data, page, isSearch);
+        displayData(preData, page, false);
         console.log("start end");
         DM();
-        // DMtest();
-        // Chitiet();
     </script>
     <script src="../../HomePage/27-01-2021/jquery-3.3.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>

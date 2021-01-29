@@ -22,18 +22,22 @@
 .featured-products {
     padding-top: 0px;
 }
-.logo-shop{
+
+.logo-shop {
     border: 1px solid #f7544a;
     display: flex;
     border-radius: 10px;
 }
-.logo-shop img{
+
+.logo-shop img {
     width: 70%;
     height: 1em;
 }
-.logo-shop a{
+
+.logo-shop a {
     display: inline;
 }
+
 .featured-products,
 .hot-products,
 .our-brand {
@@ -69,11 +73,16 @@
 .our-brand {
     padding-top: 30px;
 }
- /* nút bấm đăng nhập */
-  .button-account{
+
+
+/* nút bấm đăng nhập */
+
+.button-account {
     border-radius: 10px;
     border: 1px solid #f7544a;
- }
+}
+
+
 /*products */
 
 .products {
@@ -419,11 +428,19 @@ th {
     width: 100px;
     height: 50px;
     background: #ffffff;
-    /* border: orange solid 1px; */
+    border: orange solid 1px;
     border-radius: 5px 5px 5px 5px;
 }
 
 #addProduct {
+    width: 100px;
+    height: 50px;
+    background: #FFB6C1;
+    /* border: orange solid 1px; */
+    border-radius: 5px 5px 5px 5px;
+}
+
+.fas fa-shopping-cart {
     width: 100px;
     height: 50px;
     background: #FFB6C1;
